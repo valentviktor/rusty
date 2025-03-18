@@ -213,3 +213,12 @@ fn two_dimensional_array() {
     println!("{}", matrix[1][0]);
     println!("{}", matrix[1][2]);
 }
+
+// Constant: tidak pernah berubah dan harus deklarasi ekspresi diawal
+const MAXIMUM: i32 = 100;
+
+#[test]
+fn constant() {
+    const MINIMUM: i32 = 0;
+    println!("Min: {} & Max: {}", MINIMUM, MAXIMUM);
+}
