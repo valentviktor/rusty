@@ -222,3 +222,17 @@ fn constant() {
     const MINIMUM: i32 = 0;
     println!("Min: {} & Max: {}", MINIMUM, MAXIMUM);
 }
+
+#[test]
+fn variable_scope() {
+    let firstname = "Viktor";
+
+    {   // inner scope
+        println!("firstname: {}", firstname);
+        let lastname = "Valent";
+        println!("lastneme: {}", lastname);
+    }
+
+    println!("coba akses inner: {}", lastname); // akan error
+}
+
