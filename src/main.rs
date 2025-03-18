@@ -10,10 +10,10 @@ fn hello_test() {
 #[test]
 fn test_variable() {
     let mut name = "Devtor";
-    println!("Hello, {}", &name);
+    println!("Hello, {}", name);
 
     name = "Akhoi";
-    println!("Hello, {}", &name);
+    println!("Hello, {}", name);
 }
 
 #[test]
@@ -99,8 +99,8 @@ fn boolean() {
 
 #[test]
 fn comparison_operators() {
-    let a= 10 ;
-    let b= 20 ;
+    let a = 10;
+    let b = 20;
 
     let i: bool = a > b;
     println!("{}", i);
@@ -110,7 +110,7 @@ fn comparison_operators() {
 
     let k: bool = a >= b;
     println!("{}", k);
-    
+
     let l: bool = a <= b;
     println!("{}", l);
 
@@ -135,4 +135,81 @@ fn char_type() {
     let a: char = 'a';
     let b: char = 'b';
     println!("{} {}", a, b);
+}
+
+#[test]
+fn tuple() {
+    // Immutable tuple
+    let data: (i32, f64, bool) = (10, 10.5, true);
+    println!("{:?}",  data);
+
+    // Akses item tuple by index
+    let a = data.0;
+    let b = data.1;
+    let c = data.2;
+    println!("Tuple item access: {} {} {}", a, b,  c);
+
+    // Destructuring tuple
+    let (x, y, z) = data;
+    println!("Destructuring tuple: {} {} {}", x, y, z);
+
+    // Mutable tuple
+    let mut new_data = (10, 10.5, true);
+
+    new_data.0 = 20;
+    new_data.1 =  25.7;
+    new_data.2 = false;
+    println!("{:?}", new_data);
+}
+
+// Unit (tuple kosong)
+fn unit() {
+    println!("Hello ini unit (tuple kosong)");
+}
+
+#[test]
+fn test_unit() {
+    let result = unit(); // Tipe datanya tuple kosong
+    println!("{:?}", result);
+
+    let test: () = ();
+    println!("{:?}", test);
+}
+
+// Array mirip tuple, namun hanya 1 tipe data saja
+#[test]
+fn array() {
+    // Immutable array
+    let array: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("{:?}", array);
+
+    // Akses item array
+    let a = array[0];
+    let b  = array[1];
+    println!("Akses item array: {} {}", a, b);
+
+    // Mutable array
+    let mut new_array: [i32; 5] = [1, 2, 3, 4, 5];
+    new_array[0] = 10;
+    new_array[1] = 20;
+    println!("{:?}", new_array);
+
+    // Hitung panjang array, hanya di array bisa hitung panjangnya/jumlah datanya
+    let array_length = array.len();
+    let new_array_length = new_array.len();
+    println!("panjang array: {} & panjang new array: {}", array_length, new_array_length)
+}
+
+#[test]
+fn two_dimensional_array() {
+    let matrix: [[i32; 3]; 2] = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ];
+
+    println!("{:?}", matrix);
+    println!("{}", matrix[0][0]);
+    println!("{}", matrix[0][1]);
+    println!("{}", matrix[1][0]);
+    println!("{}", matrix[1][2]);
 }
