@@ -432,3 +432,53 @@ fn while_loop() { // ada kondisinya, namun tetap bisa menggunakan break dan cont
         counter += 1;
     }
 }
+
+#[test]
+fn array_iteration() {
+    // cara while
+    let array: [&str; 5] = ["A", "B", "C", "D", "E"];
+    let mut index = 0;
+
+    while index < array.len() {
+        println!("While value: {}", array[index]);
+        index += 1;
+    }
+    // end cara while
+
+    println!("");
+
+    // for loop, mirip foreach
+    for value in array {
+        println!("For value: {}", value);
+    }
+    // end for
+}
+
+#[test] 
+fn range() {
+    let array: [&str; 5] = ["A", "B", "C", "D", "E"];
+
+    let range = 0..5; //  exclusive: 0, 1, 2, 3, 4 
+    println!("Start: {}", range.start);
+    println!("End: {}\n", range.end);
+
+    for i in range {
+        println!("r1 value: {}", array[i]);
+    }
+
+    println!("");
+
+    let range2 = 0..=4; // inclusive: 0, 1, 2, 3, 4 
+    println!("Start: {}", range2.start());
+    println!("End: {}\n", range2.end());
+
+    for i in range2 {
+        println!("r2 value: {}", array[i]);
+    }
+
+    println!("");
+
+    for i in 2..=4 { // langsung range disini
+        println!("r2 value: {}", array[i]);
+    }
+}
