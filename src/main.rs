@@ -309,3 +309,63 @@ fn clone() { // penggunaan clone agak berat, kalau datanya banyak
 
     println!("{} {}", name1, name2)
 }
+
+// If expression
+#[test]
+fn if_else_expression() {
+    let value  = 4;
+
+    if value >= 8 { // tidak wajib pake kurung ()
+        println!("Good");
+    } else {
+        println!("Not Good");
+    }
+}
+
+#[test] 
+fn else_if_expression() {
+    let value  = 8;
+
+    if value >= 8 { // tidak wajib pake kurung ()
+        println!("Good");
+    } else if  value >= 5 {
+        println!("Not Bad");
+    } else if value >= 3 {
+        println!("So Bad");
+    } else {
+        println!("You fail");
+    }
+}
+
+#[test] 
+fn let_statement() {
+    // cara biasa
+    let value  = 6;
+    let result: &str;
+
+    if value >= 8 {
+        result =  "Good";
+    } else if  value >= 5 {
+        result =  "Not Bad";
+    } else if value >= 3 {
+        result =  "Bad";
+    } else {
+        result =  "Very Bad";
+    }
+    // end cara biasa
+
+    // cara let statement
+    let results: &str = if value >= 8 {
+        "Good"
+    } else if  value >= 5 {
+        "Not Bad"
+    } else if value >= 3 {
+        "Bad"
+    } else {
+        "Very Bad"
+    };
+
+    // end cara let statement
+
+    println!("cara biasa: {:?} \ncara let statement: {}", result, results);
+}
