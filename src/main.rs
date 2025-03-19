@@ -482,3 +482,23 @@ fn range() {
         println!("r2 value: {}", array[i]);
     }
 }
+
+// Function
+fn greeting() {
+    println!("Shalom!");
+}
+
+#[test]
+fn test_greeting() {
+    greeting();
+}
+
+fn goodbye(first_name: &str, last_name: &str) {
+    println!("Sampai jumpa lagi, {first_name} {last_name}!");
+}
+
+#[test]
+fn test_goobye() {
+    goodbye("John", "Doe");
+    goodbye("Sopo", "Jarwo");
+}
