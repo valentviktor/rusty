@@ -233,6 +233,79 @@ fn variable_scope() {
         println!("lastneme: {}", lastname);
     }
 
-    println!("coba akses inner: {}", lastname); // akan error
+    // println!("coba akses inner: {}", lastname); // akan error
 }
 
+// Memory management: Stack & Heap
+#[test]
+fn stack_heap() {
+    function_a();
+    function_b();
+}
+
+fn function_a() {
+    let a = 10;
+    let b = String::from("Viktorius");
+
+    println!("{} {}", a, b);
+}
+
+fn function_b() {
+    let a = 10;
+    let b = String::from("Akhoi");
+
+    println!("{} {}", a, b);
+}
+
+// String
+#[test]
+fn string_type() {
+    let mut name: String = String::from("Viktorius");
+    name.push_str(" Valentino");
+    println!("{}", name);
+
+    let udin = name.replace("Viktorius", "Udin");
+    println!("{}", udin);
+}
+
+// Ownership
+#[test]
+fn ownership_rules() {
+    // a tdak bisa diakses disini, belum di deklarasikan
+    let a = 10;
+
+    { // b tidak bisa diakses disini, karena belum di deklarasikan
+        let b = 20; //  b bisa diakses mulai disini
+        println!("{}",  b);
+    }  // scope b selesai, b dihapus, b tidak bisa diakses lagi
+
+    println!("{}", a);
+} //  scope a selesai, a dihapus, a tidak bisa diakses lagi
+
+#[test]
+fn data_copy() {
+    let a = 10;
+    let b  = a; // copy data dari a ke b
+
+    println!("{} {}", a,  b);
+}
+
+#[test]
+fn ownership_movement() {
+    let name1: String = String::from("Viktor");
+    println!("{}", name1);
+
+    // ownership dari name1 dipindahkan ke name2
+    let name2: String = name1;
+    // name1 tidak bisa diakses disini
+
+    println!("{}", name2);
+}
+
+#[test]
+fn clone() { // penggunaan clone agak berat, kalau datanya banyak
+    let name1 = String::from("Viktor");
+    let name2 = name1.clone();
+
+    println!("{} {}", name1, name2)
+}
