@@ -369,3 +369,54 @@ fn let_statement() {
 
     println!("cara biasa: {:?} \ncara let statement: {}", result, results);
 }
+
+#[test] 
+fn loop_expression() { // loop yang dikendalikan dengan break dan continue
+    let mut counter: i32 = 0;
+
+    loop {
+        counter += 1;
+        if counter > 10 {
+            break;
+        } else if counter % 2 == 0 {
+            continue;
+        }
+
+        println!("Counter: {}", counter);
+    }
+}
+
+#[test]
+fn loop_return_value() { // seperti let statement, bisa langsung return value
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("Result: {}", result);
+}
+
+#[test]
+fn loop_label() { // loop didalam loop, diberi label untuk loop parentnya
+    let mut number = 1;
+    'outer: loop { // label loop pertama
+        let mut i = 1;
+        loop { 
+            if number > 10 {
+                break 'outer;
+            }
+
+            println!("{} x {} = {}", number,  i, number * i);
+
+            i += 1;
+            if i > 10 {
+                break;
+            }
+        }
+        number += 1;
+        print!("\n");
+    }
+}
