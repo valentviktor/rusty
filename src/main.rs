@@ -420,3 +420,15 @@ fn loop_label() { // loop didalam loop, diberi label untuk loop parentnya
         print!("\n");
     }
 }
+
+#[test]
+fn while_loop() { // ada kondisinya, namun tetap bisa menggunakan break dan continue
+    let mut counter = 0;
+
+    while counter <= 10 {
+        if counter % 2 == 0 {
+            println!("Counter: {}", counter);
+        }
+        counter += 1;
+    }
+}
